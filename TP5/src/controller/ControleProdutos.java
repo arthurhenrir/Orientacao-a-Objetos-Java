@@ -16,6 +16,28 @@ public class ControleProdutos {
 		
 	}
 	
+	public int pesquisarNomesPastel(String nome) {	
+		int index =-1;
+			for(int i = 0; i < dados.Pasteis.size(); i++) {
+				if(nome.equalsIgnoreCase(dados.Pasteis.get(i).getNome())) {
+					index = i;
+					break;
+				}
+			}
+		return index;
+	}
+	public int pesquisarNomesBebida(String nome) {	
+		int index =-1;
+			for(int i = 0; i < dados.Bebidas.size(); i++) {
+				if(nome.equalsIgnoreCase(dados.Bebidas.get(i).getNome())) {
+					index = i;
+					break;
+				}
+			}
+		return index;
+	}
+	
+	
 	public String[] getNamesBebida() {	
 		String[] nomes = new String[dados.Bebidas.size()];
 		for(int i = 0; i < dados.Bebidas.size(); i++) {
