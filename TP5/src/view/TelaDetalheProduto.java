@@ -148,7 +148,7 @@ public class TelaDetalheProduto {
 							bufferBebida.setMarca(marcaBebidaField.getText());
 							bufferBebida.setPreco(Float.parseFloat(precoBebidaField.getText()));
 							bufferBebida.setVolume(Float.parseFloat(volumeBebidaField.getText()));
-							cprodutos.editarCriarBebida(bufferBebida, index);
+							cprodutos.editarBebida(bufferBebida, index);
 							JOptionPane.showMessageDialog(null, "O Cadastro foi salvo!", "Cadastro", JOptionPane.CLOSED_OPTION);
 							detalheBebida.dispose();
 							new TelaProdutos(cprodutos).JanelaBebida();

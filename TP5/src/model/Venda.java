@@ -1,6 +1,6 @@
 package model;
 /**
- * calsse modelo para o objeto venda
+ * classe modelo para o objeto venda
  * @author Arthur Henrique
  *
  */

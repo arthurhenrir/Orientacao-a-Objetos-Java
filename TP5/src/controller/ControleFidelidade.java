@@ -1,14 +1,25 @@
 package controller;
-import model.Fidelidade;
 
+import model.Fidelidade;
+/**
+ * Manipula os dados de fidelidade, venda e cliente
+ * @author Alex Gabriel
+ *
+ */
 public class ControleFidelidade {
 	private  Dados dados;
-	
+	/**
+	 * Contrutor ControleFidelidade com os dados a ser manipulados
+	 * @param dados Dados que serão manipulados 
+	 */
 	public ControleFidelidade(Dados dados) {
 		this.dados = dados;
 		
 	}
-	
+	/**
+	 * Obtém os dados de fidelidade e cliente, como nome e cpf do cliente, nivel, pontos e recompensa de fidelidade
+	 * @return String[] com os dados de fidelidade e cliente
+	 */
 	public String[] getFidelidade() {
 		String[] fidelidade = new String[dados.nomeClientes.size()];
 		int pontos;
