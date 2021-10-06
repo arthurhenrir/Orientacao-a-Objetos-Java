@@ -16,9 +16,9 @@ public class TelaFidelidade {
 	private JFrame telaFide = new JFrame();
 	/**
 	 * Construtor TelaFidelidade constroi a janela da tela fidelidade, tem como argumento os objetos de manipulação de dados
-	 * @param cfidelidade
-	 * @param cvendas
-	 * @param cclientes
+	 * @param cfidelidade objeto que manipula os dados de fidelidade
+	 * @param cvendas objeto que manipula os dados de vendas
+	 * @param cclientes objeto que manipula os dados de clientes
 	 */
 	public TelaFidelidade(ControleFidelidade cfidelidade, ControleVendas cvendas, ControleClientes cclientes) {
 		this.cclientes = cclientes;

@@ -53,10 +53,6 @@ public class TelaMenu implements ActionListener{
 		menu.setVisible(true);
 		menu.setResizable(false);
     }
-    /**
-     * main
-     * @param args
-     */
     public static void main(String[] args) {
         TelaMenu menu = new TelaMenu();
         cliente.addActionListener(menu);

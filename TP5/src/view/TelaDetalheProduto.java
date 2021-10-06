@@ -197,7 +197,7 @@ public class TelaDetalheProduto {
 	}
 	/**
 	 * Modela a janela que recebe o cadastro de um novo pastel
-	 * @param cprodutos
+	 * @param cprodutos objeto que manipula os dados de produto
 	 * @return Objeto Pastel que sera cadastrado
 	 */
 	public Pastel criarPastel(ControleProdutos cprodutos) {

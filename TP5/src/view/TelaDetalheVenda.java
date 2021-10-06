@@ -23,8 +23,8 @@ public class TelaDetalheVenda {
 	private static Validador valida = new Validador();
 	/**
 	 * Construtor TelaDetalheVenda, recebe como argumento os objetos de manipulação de dados 
-	 * @param cvendas
-	 * @param cclientes
+	 * @param cvendas objeto que manipula os dados de vendas
+	 * @param cclientes objeto que manipula os dados de clientes
 	 */
 	public TelaDetalheVenda(ControleVendas cvendas, ControleClientes cclientes) {
 		this.cvendas = cvendas;
