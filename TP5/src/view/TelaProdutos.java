@@ -4,14 +4,21 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 import controller.ControleProdutos;
-
+/**
+ * Modela a janela que mostra os produtos e as opções
+ * @author Alex Gabriel
+ *
+ */
 public class TelaProdutos {
 	private  JFrame menuProdutos = new JFrame("Produtos");
 	private  JLabel titulo = new JLabel ("Produtos");
 	private  JButton pastel =  new JButton("Pastel");
 	private  JButton bebida = new JButton("Bebida");
 	private  ControleProdutos cprodutos;
-	
+	/**
+	 * construtor TelaProdutos, constroi a janela de produtos
+	 * @param cprodutos classe de conttrole que manipula os dados de controle 
+	 */
 	public TelaProdutos(ControleProdutos cprodutos) {
 		this.cprodutos = cprodutos;
 
@@ -39,7 +46,10 @@ public class TelaProdutos {
 			JanelaBebida();
 		});
 	}
-
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	public void sets(JFrame f) {//configuraÃƒÂ§ÃƒÂµes padrao da janela
 		f.setSize(400, 350);
 		f.setResizable(false);
@@ -49,7 +59,9 @@ public class TelaProdutos {
 		f.setLayout(null);
 		f.setLayout(new BorderLayout());
 	}
-
+	/**
+	 * Constroi a janela de pasteis, com informações e opções
+	 */
 	public void JanelaPastel() {
 		JPanel legenda = new JPanel();
 		legenda.setLayout(new BorderLayout());
@@ -89,6 +101,9 @@ public class TelaProdutos {
 			}
 		});
 	}
+	/**
+	 * Constroi a janela de bebidas, com informações e opções
+	 */
 	public void JanelaBebida() {
 		JPanel legenda2 = new JPanel();
 		legenda2.setLayout(new BorderLayout());
@@ -128,6 +143,9 @@ public class TelaProdutos {
 			}
 		});
 	}
+	/**
+	 * controi a janela da função de pesquisa sobre pasteis
+	 */
 	public void JanelaPesquisaPastel() {
 		JFrame janelaPesquisa = new JFrame();
 		JTextField nomePesquisa = new JTextField("");
@@ -155,6 +173,9 @@ public class TelaProdutos {
 			}	
 		});
 	}
+	/**
+	 * controi a janela da função de pesquisa sobre bebidas
+	 */
 	public void JanelaPesquisaBebida() {
 		JFrame janelaPesquisa = new JFrame();
 		JTextField nomePesquisa = new JTextField("");

@@ -2,15 +2,25 @@ package view;
 import java.awt.*;
 import javax.swing.*;
 import controller.*;
-
+/**
+ * Modela a janela que mostra os dados de detalhe de cliente
+ * @author Arthur Henrique
+ *
+ */
 public class TelaDetalheCliente{
 	private static ControleClientes cclientes;
 	private static Validador valida = new Validador();
-	
+	/**
+	 * Construtor TelaDetalheCliente
+	 * @param cclientes manipula os dados de cliente
+	 */
 	public TelaDetalheCliente(ControleClientes cclientes) {
 		this.cclientes = cclientes;
 	}
-	
+	/**
+	 *  Modela a janela que recebe os dados para o cadastro de novo cliente 
+	 * @param index indice que indica o local do objeto na arraylist
+	 */
 	public void cadastrar(int index){	//Função para cadastrar novo cliente
 		//Criar elementos
 		JFrame menu = new JFrame("");
@@ -53,7 +63,10 @@ public class TelaDetalheCliente{
         });
 		
 	}
-	
+	/**
+	 * Modela a janela que mostra os dados que podem ser editados
+	 * @param index indice que indica o local do objeto na arraylist
+	 */
 	public void editar(int index) { //Função de editar os dados do cliente
 		//Criar os elementos
 		JFrame frame = new JFrame("Editar Cliente");
@@ -100,7 +113,9 @@ public class TelaDetalheCliente{
 			JOptionPane.showMessageDialog(null, "Excluido");
 		});
 	}
-	
+	/**
+	 * Modela a janela que mostra os clientes
+	 */
 	public void listar() { //Função de listar os clientes
 		//Criar elementos
 		JFrame janela = new JFrame("Lista de Clientes");
@@ -136,7 +151,10 @@ public class TelaDetalheCliente{
 		
 		
 	}
-	
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	
 	public void sets(JFrame f) { //Função para padronizar os JFrames principais
 		f.setSize(400, 350);

@@ -12,17 +12,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.*;
-
+/**
+ * Modela a janela de detalhes do objeto venda
+ * @author Arthur Henrique
+ *
+ */
 public class TelaDetalheVenda {
 	private static ControleClientes cclientes;
 	private static ControleVendas cvendas;
 	private static Validador valida = new Validador();
-	
+	/**
+	 * Construtor TelaDetalheVenda, recebe como argumento os objetos de manipula��o de dados 
+	 * @param cvendas
+	 * @param cclientes
+	 */
 	public TelaDetalheVenda(ControleVendas cvendas, ControleClientes cclientes) {
 		this.cvendas = cvendas;
 		this.cclientes = cclientes;
 	}
-	
+	/**
+	 * modela a janela que mostra todos os dados dos clientes
+	 */
 	public void listarClientes() { //Função para listar os clientes e suas vendas na aba de Listar Vendas
 		//Definiçao dos elementos graficos
 		JFrame janela = new JFrame("Lista de Clientes");
@@ -57,7 +67,10 @@ public class TelaDetalheVenda {
 			}
 		});
 	}
-	
+	/**
+	 * Modela a janela que implementa a funcionalidade de endi��o de clientes
+	 * @param index indice que indica o cliente a ser editado
+	 */
 	public void editaVenda(int index) { //Função de editar/excluir os dados de uma venda
 		//Criar os elementos graficos
 		JFrame menu = new JFrame("Cadastrar Venda");
@@ -119,7 +132,9 @@ public class TelaDetalheVenda {
 			JOptionPane.showMessageDialog(null, "Venda Excluída");
 		});
 	}
-	
+	/**
+	 * Modela a janela para listar clientes para cadastrar uma nova venda
+	 */
 	public void cadastroVenda() { //Função para listar clientes para cadastrar uma nova venda
 		//Criar elementos
 		JFrame janela = new JFrame("Lista de Clientes");
@@ -153,7 +168,10 @@ public class TelaDetalheVenda {
 			}
 		});
 	}
-	
+	/**
+	 * Modela a Janela de cadastro de cliente
+	 * @param index indice
+	 */
 	public void janelaCadastro(int index) { //Janela de cadastro de cliente
 		//Criar elementos novos
 		JFrame menu = new JFrame("Cadastrar Venda");
@@ -206,7 +224,10 @@ public class TelaDetalheVenda {
         	}
         });
 	}
-	
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	public void sets(JFrame f) { //Padronizar o estilo dos JFrames primarios
 		f.setSize(400, 350);
         f.setLocationRelativeTo(null);

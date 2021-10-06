@@ -4,13 +4,26 @@ import java.awt.*;
 import javax.swing.*;
 import controller.*;
 import model.*;
-
+/**
+ * Modela a janela que mostra os detalhes de produto especifico
+ * @author Alex Gabriel
+ *
+ */
 public class TelaDetalheProduto {
 	private static Font padrao = new Font("Arial", Font.BOLD, 20);
 	private static Validador valida = new Validador();
+	/**
+	 * Construtor TelaDetalheProduto sem argumentos
+	 */
 	public TelaDetalheProduto() {
 		
 	}
+	/**
+	 * Construtor TelaDetalheProduto
+	 * @param cprodutos manipula os dados de produto
+	 * @param op opção 1 para pastel e 2 para bebida
+	 * @param index indice que mostra o local do produto na arraylist
+	 */
 	public TelaDetalheProduto (ControleProdutos cprodutos, int op, int index){
 		switch (op){
 			case 1:
@@ -169,7 +182,10 @@ public class TelaDetalheProduto {
 				});
 		}
 	}
-	
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	public void sets(JFrame f) {
 		f.setSize(400, 350);
 		f.setResizable(false);
@@ -179,6 +195,11 @@ public class TelaDetalheProduto {
 		f.setLayout(null);
 		f.setLayout(null);
 	}
+	/**
+	 * Modela a janela que recebe o cadastro de um novo pastel
+	 * @param cprodutos
+	 * @return Objeto Pastel que sera cadastrado
+	 */
 	public Pastel criarPastel(ControleProdutos cprodutos) {
 		Pastel novoPastel = new Pastel();
 		JFrame detalhePastel = new JFrame("Pastel");
@@ -243,6 +264,11 @@ public class TelaDetalheProduto {
 		});
 		return novoPastel;
 	}
+	/**
+	 * Modela a janela que recebe os dados para cadastro de um novo cliente
+	 * @param cprodutos manipula os dados de produtos
+	 * @return o objeto Bebida que será cadastrado
+	 */
 	public Bebida criarBebida(ControleProdutos cprodutos) {
 		Bebida novoBebida = new Bebida();
 		JFrame detalheBebida = new JFrame("Pastel");

@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controller.*;
-
+/**
+ * Modela a janela principal com todas as opções relacionadas a pastelaria
+ * @author Alex e Arthur
+ *
+ */
 public class TelaMenu implements ActionListener{
     
     private static JFrame menu = new JFrame("Pastelaria Heroes");
@@ -19,7 +23,9 @@ public class TelaMenu implements ActionListener{
     private ControleClientes cclientes = new ControleClientes(dados);
     private ControleVendas cvendas = new ControleVendas(dados);
     private ControleFidelidade cfidelidade = new ControleFidelidade(dados);
-
+    /**
+     * Construtor TelaMenu constroi a tela de menu
+     */
     public TelaMenu(){
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(125, 10, 150, 30);
@@ -47,7 +53,10 @@ public class TelaMenu implements ActionListener{
 		menu.setVisible(true);
 		menu.setResizable(false);
     }
-
+    /**
+     * main
+     * @param args
+     */
     public static void main(String[] args) {
         TelaMenu menu = new TelaMenu();
         cliente.addActionListener(menu);
@@ -63,19 +72,19 @@ public class TelaMenu implements ActionListener{
         int resposta;
 
         if(src == produto){
-        	new TelaProdutos(cprodutos);
+        	new TelaProdutos(cprodutos);//chama a tela de produtos
         }
 
         if(src == cliente){
-        	new TelaCliente(cclientes);
+        	new TelaCliente(cclientes);//chama a tela de clientes 
         }
 
         if(src == venda){
-        	new TelaVenda(cvendas, cclientes);
+        	new TelaVenda(cvendas, cclientes);//chama a tela de vendas
         }
 
         if(src == fidelidade){
-        	new TelaFidelidade(cfidelidade, cvendas, cclientes);
+        	new TelaFidelidade(cfidelidade, cvendas, cclientes);//chama a tela de fidelidade
         }
 
         if(src == sair){

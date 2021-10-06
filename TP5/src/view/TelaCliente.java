@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controller.ControleClientes;
-
+/**
+ * Modela a janela que mostra a area de clientes
+ * @author Arthur Henrique
+ *
+ */
 public class TelaCliente implements ActionListener {
 
 	private JFrame janela = new JFrame("Area de Clientes");
@@ -12,7 +16,10 @@ public class TelaCliente implements ActionListener {
 	private JButton listar = new JButton("Listar");
 	private JButton voltar = new JButton("Voltar");
 	private ControleClientes cclientes;
-	
+	/**
+	 * Construtor TelaCliente
+	 * @param cclientes manipula os dados de cliente
+	 */
 	public TelaCliente(ControleClientes cclientes) { //Função principal
 		this.cclientes = cclientes;
 		//Estilização dos elementos
@@ -37,7 +44,10 @@ public class TelaCliente implements ActionListener {
         janela.add(listar);
         janela.add(voltar);		
 	}
-	
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	public void sets(JFrame f) { //Função para setar o estilo dos JFrames primarios
 		f.setLayout(null);
 		f.setSize(400, 350);

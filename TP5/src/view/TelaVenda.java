@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controller.*;
-
+/**
+ * Modela a janela de vendas, com funções e as vendas
+ * @author Arthur Henrique
+ *
+ */
 public class TelaVenda implements ActionListener{
 	
 	private JFrame janela = new JFrame("");
@@ -13,7 +17,11 @@ public class TelaVenda implements ActionListener{
 	private JButton voltar = new JButton("Voltar");
 	private static ControleClientes cclientes;
 	private static ControleVendas cvendas;
-	
+	/**
+	 * Construtor TelaVenda, recebe as classes de manipulção dos dados de vendas e cliente
+	 * @param cvendas objeto que manipula os dados de venda
+	 * @param cclientes objeto que manipula os dados de cliente
+	 */
 	public TelaVenda(ControleVendas cvendas, ControleClientes cclientes) {
 		this.cclientes = cclientes;
 		this.cvendas = cvendas;
@@ -41,7 +49,10 @@ public class TelaVenda implements ActionListener{
         janela.add(listar);
         janela.add(voltar);		
 	}
-	
+	/**
+	 * Configura o JFrame 
+	 * @param f JFrame a ser configurado
+	 */
 	public void sets(JFrame f) { //FunÃ§Ã£o para definir o padrÃ£o dos JFrames
 		f.setLayout(null);
 		f.setSize(400, 350);
@@ -54,10 +65,10 @@ public class TelaVenda implements ActionListener{
 		Object src = e.getSource();
 		
 		if(src == cadastrar)
-			new TelaDetalheVenda(cvendas, cclientes).cadastroVenda();
+			new TelaDetalheVenda(cvendas, cclientes).cadastroVenda();//chama a janela de cadastro de venda
 		if(src == voltar)
 			janela.dispose();
 		if(src == listar)
-			new TelaDetalheVenda(cvendas, cclientes).listarClientes();
+			new TelaDetalheVenda(cvendas, cclientes).listarClientes();//chama a janela de detalhes da venda
 	}
 }
