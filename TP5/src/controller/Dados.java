@@ -3,17 +3,47 @@ package controller;
 import java.util.ArrayList;
 
 import model.*;
-
+/**
+ * Armazena todos os dados utilizados no sistema
+ * @author Arthur Henrique, Alex Gabriel
+ *
+ */
 public class Dados {
-    public ArrayList<Bebida> Bebidas = new ArrayList<Bebida>();      
+	/**
+	 * ArrayList para armazenamento das bebidas
+	 */
+    public ArrayList<Bebida> Bebidas = new ArrayList<Bebida>();  
+    /**
+     * ArrayList para armazenamento dos pasteis
+     */
     public ArrayList<Pastel> Pasteis = new ArrayList<Pastel>();
-    public ArrayList<String> nomeClientes = new ArrayList<String>();        //ArrayList para os nomes dos clientes
-    public ArrayList<String> cpfClientes = new ArrayList<String>();         //ArrayList para os CPFs dos clientes
-    public ArrayList<Fidelidade> Fidelidade = new ArrayList<Fidelidade>();  //ArrayList para os pontos de fidelidade dos clientes
-    public ArrayList<Integer> vendaPasteis = new ArrayList<Integer>();        //ArrayList para a quantidade de pasteis comprados pelo cliente
-    public ArrayList<Integer> vendaRefri = new ArrayList<Integer>();          //ArrayList para a quantidade de refris comprados pelo cliente
-    public ArrayList<Integer> vendaSuco = new ArrayList<Integer>();           //ArrayList para a quantidade de sucos comprados pelo cliente
- 
+    /**
+     * ArrayList para armazenamento dos nomes dos clientes
+     */
+    public ArrayList<String> nomeClientes = new ArrayList<String>();  
+    /**
+     * ArrayList para armazenamento dos CPFs dos clientes
+     */
+    public ArrayList<String> cpfClientes = new ArrayList<String>();      
+    /**
+     * ArrayList para armazenamento dos dados de fidelidades dos clientes
+     */
+    public ArrayList<Fidelidade> Fidelidade = new ArrayList<Fidelidade>();
+    /**
+     * ArrayList para armazenamento da quantidade de pasteis vendidos ao cliente
+     */
+    public ArrayList<Integer> vendaPasteis = new ArrayList<Integer>();  
+    /**
+     * ArrayList para armazenamento da quantidade de refris vendidos ao cliente
+     */
+    public ArrayList<Integer> vendaRefri = new ArrayList<Integer>(); 
+    /**
+     * ArrayList para armazenamento da quantidade de sucos vendidos ao cliente
+     */
+    public ArrayList<Integer> vendaSuco = new ArrayList<Integer>();           
+    /**
+     * Classe para povoamento dos dados aleatorios
+     */
     public Dados() {//dados pre cadastrados 
     	Fidelidade fidelidade = new Fidelidade();
     	Pastel pastel1 = new Pastel("Frangostain", "Frango com catupiry", "Peito de frango, catupiry", 7.9f);
