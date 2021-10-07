@@ -22,9 +22,9 @@ public class TelaDetalheVenda {
 	private static ControleVendas cvendas;
 	private static Validador valida = new Validador();
 	/**
-	 * Construtor TelaDetalheVenda, recebe como argumento os objetos de manipulação de dados 
-	 * @param cvendas objeto que manipula os dados de vendas
-	 * @param cclientes objeto que manipula os dados de clientes
+	 * Construtor TelaDetalheVenda, recebe como argumento os objetos de manipulaï¿½ï¿½o de dados 
+	 * @param cvendas
+	 * @param cclientes
 	 */
 	public TelaDetalheVenda(ControleVendas cvendas, ControleClientes cclientes) {
 		this.cvendas = cvendas;
@@ -68,7 +68,7 @@ public class TelaDetalheVenda {
 		});
 	}
 	/**
-	 * Modela a janela que implementa a funcionalidade de endição de clientes
+	 * Modela a janela que implementa a funcionalidade de endiï¿½ï¿½o de clientes
 	 * @param index indice que indica o cliente a ser editado
 	 */
 	public void editaVenda(int index) { //FunÃ§Ã£o de editar/excluir os dados de uma venda
@@ -112,17 +112,23 @@ public class TelaDetalheVenda {
         menu.setResizable(false);
         
 		//Eventos dos botoes
+		String caracteres="0123456789";
         save.addActionListener(a -> {
         	if(textPastel.getText().isEmpty() || textRefri.getText().isEmpty() || textSuco.getText().isEmpty()) {
         		JOptionPane.showMessageDialog(null, "Os campos nao podem estar vazios");
         	}else{
-        		if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
-        			cvendas.editVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
-                	menu.dispose();
-        			JOptionPane.showMessageDialog(null, "Venda Editada");
-        		}else {
-        			JOptionPane.showMessageDialog(null, "Dados de venda invalidos \n Coloque valores positivos");
-        		}      
+				if(caracteres.contains(textPastel.getText()) || caracteres.contains(textRefri.getText()) || caracteres.contains(textSuco.getText())){
+					if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
+						cvendas.editVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
+						menu.dispose();
+						JOptionPane.showMessageDialog(null, "Venda Editada");
+					}else {
+						JOptionPane.showMessageDialog(null, "Dados de venda invalidos \n Coloque valores positivos");
+					} 
+				}else{
+					JOptionPane.showMessageDialog(null, "Dados invalidos, insira numeros");
+				}
+        		     
         	}
         });
 
@@ -210,17 +216,23 @@ public class TelaDetalheVenda {
         menu.setResizable(false);
         
 		//Evento aos botÃµes
+		String caracteres="0123456789";
         save.addActionListener(a -> {
         	if(textPastel.getText().isEmpty() || textRefri.getText().isEmpty() || textSuco.getText().isEmpty()) {
         		JOptionPane.showMessageDialog(null, "Os campos nao podem estar vazios");
         	}else{
-        		if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
-        			cvendas.setVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
-        			menu.dispose();
-        			JOptionPane.showMessageDialog(null, "Venda Cadastrada");
-        		} else {
-        			JOptionPane.showMessageDialog(null, "Dados de venda invalidos \n Coloque valores positivos");
-        		} 
+				if(caracteres.contains(textPastel.getText()) || caracteres.contains(textRefri.getText()) || caracteres.contains(textSuco.getText())){
+					if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
+						cvendas.setVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
+						menu.dispose();
+						JOptionPane.showMessageDialog(null, "Venda Cadastrada");
+					} else {
+						JOptionPane.showMessageDialog(null, "Dados de venda invalidos \n Coloque valores positivos");
+					} 
+				}else{
+					JOptionPane.showMessageDialog(null, "Dados invalidos, insira numeros");
+				}
+        		
         	}
         });
 	}

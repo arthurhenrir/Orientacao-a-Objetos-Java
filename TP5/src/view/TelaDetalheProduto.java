@@ -21,10 +21,11 @@ public class TelaDetalheProduto {
 	/**
 	 * Construtor TelaDetalheProduto
 	 * @param cprodutos manipula os dados de produto
-	 * @param op opção 1 para pastel e 2 para bebida
+	 * @param op opï¿½ï¿½o 1 para pastel e 2 para bebida
 	 * @param index indice que mostra o local do produto na arraylist
 	 */
 	public TelaDetalheProduto (ControleProdutos cprodutos, int op, int index){
+		String caracteres="0123456789";
 		switch (op){
 			case 1:
 				JFrame detalhePastel = new JFrame("Pastel");//Janela que mostra os detalhes do pastel
@@ -69,20 +70,24 @@ public class TelaDetalheProduto {
 
 				salvar.addActionListener(e -> {
 					if(nomePastelField.getText().isEmpty() || saborPastelField.getText().isEmpty() || precoPastelField.getText().isEmpty() || descPastelField.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaços em branco");
+						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaï¿½os em branco");
 					}else {
-						if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
-							bufferPastel.setNome(nomePastelField.getText());
-							bufferPastel.setSabor(saborPastelField.getText());
-							bufferPastel.setPreco(Float.parseFloat(precoPastelField.getText()));
-							bufferPastel.setIngredientes(descPastelField.getText());
-							cprodutos.editarPastel(bufferPastel, index);//chama a funÃ§Ã£o que edita o pastel, caso seja editado
-							JOptionPane.showMessageDialog(null, "O Cadastro foi salvo!", "Cadastro", JOptionPane.CLOSED_OPTION);
-							detalhePastel.dispose();//fecha a janela do detalhe
-							new TelaProdutos(cprodutos).JanelaPastel();//chama uma nova tela com a lista de produtos
-						}else {
-							JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preço positivo");
-						}	
+						if(caracteres.contains(precoPastelField.getText())){
+							if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
+								bufferPastel.setNome(nomePastelField.getText());
+								bufferPastel.setSabor(saborPastelField.getText());
+								bufferPastel.setPreco(Float.parseFloat(precoPastelField.getText()));
+								bufferPastel.setIngredientes(descPastelField.getText());
+								cprodutos.editarPastel(bufferPastel, index);//chama a funÃ§Ã£o que edita o pastel, caso seja editado
+								JOptionPane.showMessageDialog(null, "O Cadastro foi salvo!", "Cadastro", JOptionPane.CLOSED_OPTION);
+								detalhePastel.dispose();//fecha a janela do detalhe
+								new TelaProdutos(cprodutos).JanelaPastel();//chama uma nova tela com a lista de produtos
+							}else {
+								JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preï¿½o positivo");
+							}
+						}else{
+							JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite os numeros");
+						}							
 					}
 				});
 
@@ -153,21 +158,26 @@ public class TelaDetalheProduto {
 				
 				salvar1.addActionListener(e -> {
 					if(precoBebidaField.getText().isEmpty() || volumeBebidaField.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaços em branco");
+						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaï¿½os em branco");
 					}else{
-						if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
-							bufferBebida.setNome(nomeBebidaField.getText());
-							bufferBebida.setSabor(saborBebidaField.getText());
-							bufferBebida.setMarca(marcaBebidaField.getText());
-							bufferBebida.setPreco(Float.parseFloat(precoBebidaField.getText()));
-							bufferBebida.setVolume(Float.parseFloat(volumeBebidaField.getText()));
-							cprodutos.editarBebida(bufferBebida, index);
-							JOptionPane.showMessageDialog(null, "O Cadastro foi salvo!", "Cadastro", JOptionPane.CLOSED_OPTION);
-							detalheBebida.dispose();
-							new TelaProdutos(cprodutos).JanelaBebida();
-						}else {
-							JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preço e Volume positivos");
+						if(caracteres.contains(precoBebidaField.getText()) || caracteres.contains(volumeBebidaField.getText())){
+							if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
+								bufferBebida.setNome(nomeBebidaField.getText());
+								bufferBebida.setSabor(saborBebidaField.getText());
+								bufferBebida.setMarca(marcaBebidaField.getText());
+								bufferBebida.setPreco(Float.parseFloat(precoBebidaField.getText()));
+								bufferBebida.setVolume(Float.parseFloat(volumeBebidaField.getText()));
+								cprodutos.editarBebida(bufferBebida, index);
+								JOptionPane.showMessageDialog(null, "O Cadastro foi salvo!", "Cadastro", JOptionPane.CLOSED_OPTION);
+								detalheBebida.dispose();
+								new TelaProdutos(cprodutos).JanelaBebida();
+							}else {
+								JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preï¿½o e Volume positivos");
+							}
+						}else{
+							JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Digite numeros");
 						}
+						
 					}
 				});
 				
@@ -201,6 +211,7 @@ public class TelaDetalheProduto {
 	 * @return Objeto Pastel que sera cadastrado
 	 */
 	public Pastel criarPastel(ControleProdutos cprodutos) {
+		String caracteres="0123456789";
 		Pastel novoPastel = new Pastel();
 		JFrame detalhePastel = new JFrame("Pastel");
 		sets(detalhePastel);
@@ -245,33 +256,37 @@ public class TelaDetalheProduto {
 		
 		salvar.addActionListener(e -> {
 			if(nomePastelField.getText().isEmpty() || saborPastelField.getText().isEmpty() || precoPastelField.getText().isEmpty() || descPastelField.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaços em branco");
+				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaï¿½os em branco");
 			}else {
-				if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
-					novoPastel.setNome(nomePastelField.getText());
-					novoPastel.setSabor(saborPastelField.getText());
-					novoPastel.setPreco(Float.parseFloat(precoPastelField.getText()));
-					novoPastel.setIngredientes(descPastelField.getText());
-					System.out.print(bufferPastel.toString());
-					cprodutos.criarPastel(novoPastel);
-					detalhePastel.dispose();
-					new TelaProdutos(cprodutos).JanelaPastel();
-				}else {
-					JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preço positivo");
-				}
-			}
-			
+				if(caracteres.contains(precoPastelField.getText())){
+					if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
+						novoPastel.setNome(nomePastelField.getText());
+						novoPastel.setSabor(saborPastelField.getText());
+						novoPastel.setPreco(Float.parseFloat(precoPastelField.getText()));
+						novoPastel.setIngredientes(descPastelField.getText());
+						System.out.print(bufferPastel.toString());
+						cprodutos.criarPastel(novoPastel);
+						detalhePastel.dispose();
+						new TelaProdutos(cprodutos).JanelaPastel();
+					}else {
+						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preï¿½o positivo");
+					}					
+				}else{
+					JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Digite numeros");
+				}				
+			}			
 		});
 		return novoPastel;
 	}
 	/**
 	 * Modela a janela que recebe os dados para cadastro de um novo cliente
 	 * @param cprodutos manipula os dados de produtos
-	 * @return o objeto Bebida que será cadastrado
+	 * @return o objeto Bebida que serï¿½ cadastrado
 	 */
 	public Bebida criarBebida(ControleProdutos cprodutos) {
+		String caracteres="0123456789";
 		Bebida novoBebida = new Bebida();
-		JFrame detalheBebida = new JFrame("Pastel");
+		JFrame detalheBebida = new JFrame("Bebida");
 		sets(detalheBebida);
 		Bebida bufferBebida = new Bebida();
 		JTextField nomeBebidaField = new JTextField();
@@ -326,21 +341,26 @@ public class TelaDetalheProduto {
 		
 		salvar1.addActionListener(e -> {
 			if(nomeBebidaField.getText().isEmpty() || marcaBebidaField.getText().isEmpty() || saborBebidaField.getText().isEmpty() || precoBebidaField.getText().isEmpty() || volumeBebidaField.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaços em branco");
+				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espaï¿½os em branco");
 			}else{
-				if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
-					bufferBebida.setNome(nomeBebidaField.getText());
-					bufferBebida.setSabor(saborBebidaField.getText());
-					bufferBebida.setMarca(marcaBebidaField.getText());
-					bufferBebida.setPreco(Float.parseFloat(precoBebidaField.getText()));
-					bufferBebida.setVolume(Float.parseFloat(volumeBebidaField.getText()));
-					System.out.print(bufferBebida.toString());
-					cprodutos.criarBebida(bufferBebida);
-					detalheBebida.dispose();
-					new TelaProdutos(cprodutos).JanelaBebida();
-				}else {
-					JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preço e Volume positivos");
+				if(caracteres.contains(precoBebidaField.getText()) || caracteres.contains(volumeBebidaField.getText())){
+					if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
+						bufferBebida.setNome(nomeBebidaField.getText());
+						bufferBebida.setSabor(saborBebidaField.getText());
+						bufferBebida.setMarca(marcaBebidaField.getText());
+						bufferBebida.setPreco(Float.parseFloat(precoBebidaField.getText()));
+						bufferBebida.setVolume(Float.parseFloat(volumeBebidaField.getText()));
+						System.out.print(bufferBebida.toString());
+						cprodutos.criarBebida(bufferBebida);
+						detalheBebida.dispose();
+						new TelaProdutos(cprodutos).JanelaBebida();
+					}else {
+						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite um Preï¿½o e Volume positivos");
+					}
+				}else{
+					JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, digite numeros");
 				}
+				
 			}			
 		});
 		return novoBebida;
