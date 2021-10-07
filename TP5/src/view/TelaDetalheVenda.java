@@ -112,12 +112,11 @@ public class TelaDetalheVenda {
         menu.setResizable(false);
         
 		//Eventos dos botoes
-		String caracteres="0123456789";
         save.addActionListener(a -> {
         	if(textPastel.getText().isEmpty() || textRefri.getText().isEmpty() || textSuco.getText().isEmpty()) {
         		JOptionPane.showMessageDialog(null, "Os campos nao podem estar vazios");
         	}else{
-				if(caracteres.contains(textPastel.getText()) || caracteres.contains(textRefri.getText()) || caracteres.contains(textSuco.getText())){
+				if(valida.validaFloat(textPastel.getText()) || valida.validaFloat(textRefri.getText()) || valida.validaFloat(textSuco.getText())){
 					if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
 						cvendas.editVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
 						menu.dispose();
@@ -216,12 +215,11 @@ public class TelaDetalheVenda {
         menu.setResizable(false);
         
 		//Evento aos botões
-		String caracteres="0123456789";
         save.addActionListener(a -> {
         	if(textPastel.getText().isEmpty() || textRefri.getText().isEmpty() || textSuco.getText().isEmpty()) {
         		JOptionPane.showMessageDialog(null, "Os campos nao podem estar vazios");
         	}else{
-				if(caracteres.contains(textPastel.getText()) || caracteres.contains(textRefri.getText()) || caracteres.contains(textSuco.getText())){
+				if(valida.validaFloat(textPastel.getText()) || valida.validaFloat(textRefri.getText()) || valida.validaFloat(textSuco.getText())){
 					if(valida.validaVenda(Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()))) {
 						cvendas.setVenda(index, Integer.parseInt(textPastel.getText()), Integer.parseInt(textRefri.getText()), Integer.parseInt(textSuco.getText()));
 						menu.dispose();

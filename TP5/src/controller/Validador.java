@@ -22,7 +22,7 @@ public class Validador {
 	}
 	
 	/**
-	 * Valida a quantidade de produtos inseridos nas vendas, deve ser inserido valores não negativos
+	 * Valida a quantidade de produtos inseridos nas vendas, deve ser inserido valores nï¿½o negativos
 	 * @param numPastel Int do valor de pastel vendido
 	 * @param numRefri Int do valor de refri vendido
 	 * @param numSuco Int do valor de suco vendido
@@ -37,8 +37,8 @@ public class Validador {
 	}
 	
 	/**
-	 * valida o valor e volume da bebida, deve ser inserido valores não negativos
-	 * @param preco Int do preço da bebida inserido
+	 * valida o valor e volume da bebida, deve ser inserido valores nï¿½o negativos
+	 * @param preco Int do preï¿½o da bebida inserido
 	 * @param volume Int do volume de bebidas inserido
 	 * @return boolean true para dados correto e false para dados incorretos 
 	 */
@@ -51,8 +51,8 @@ public class Validador {
 	}
 	
 	/**
-	 * valida o valor do pastel, deve ser inserido valores não negativos
-	 * @param preco Int do preço do pastel inserido
+	 * valida o valor do pastel, deve ser inserido valores nï¿½o negativos
+	 * @param preco Int do preï¿½o do pastel inserido
 	 * @return boolean true para dados correto e false para dados incorretos 
 	 */
 	public boolean validaPastel(float preco) {
@@ -60,6 +60,29 @@ public class Validador {
 			return false;
 		}else {
 			return true;
+		}
+	}
+
+	/**
+	 * valida o campo de valores, impedindo que seja inserido valores diferentes de 0 a 9 e o sinal de '.'
+	 * @param preco String do JTextField que for inserido nos campos de valores
+	 * @return boolean true caso nÃ£o tenha nenhuma letra ou sinal e false caso tenha
+	 */
+	public boolean validaFloat(String preco){
+		char[] a = preco.toCharArray();
+		int verifica = 0;
+		for(int i=0; i < preco.length(); i++){
+			if(a[i] == '.'){
+				verifica = 1;
+			}
+			if(a[i] != '.' && !Character.isDigit(a[i])){
+				return false;
+			}
+		}
+		if(verifica == 1){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }

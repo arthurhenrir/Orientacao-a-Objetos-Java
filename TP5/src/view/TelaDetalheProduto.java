@@ -25,7 +25,6 @@ public class TelaDetalheProduto {
 	 * @param index indice que mostra o local do produto na arraylist
 	 */
 	public TelaDetalheProduto (ControleProdutos cprodutos, int op, int index){
-		String caracteres="0123456789";
 		switch (op){
 			case 1:
 				JFrame detalhePastel = new JFrame("Pastel");//Janela que mostra os detalhes do pastel
@@ -72,7 +71,7 @@ public class TelaDetalheProduto {
 					if(nomePastelField.getText().isEmpty() || saborPastelField.getText().isEmpty() || precoPastelField.getText().isEmpty() || descPastelField.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espa�os em branco");
 					}else {
-						if(caracteres.contains(precoPastelField.getText())){
+						if(valida.validaFloat(precoPastelField.getText())){
 							if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
 								bufferPastel.setNome(nomePastelField.getText());
 								bufferPastel.setSabor(saborPastelField.getText());
@@ -160,7 +159,7 @@ public class TelaDetalheProduto {
 					if(precoBebidaField.getText().isEmpty() || volumeBebidaField.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espa�os em branco");
 					}else{
-						if(caracteres.contains(precoBebidaField.getText()) || caracteres.contains(volumeBebidaField.getText())){
+						if(valida.validaFloat(precoBebidaField.getText()) && valida.validaFloat(volumeBebidaField.getText())){
 							if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
 								bufferBebida.setNome(nomeBebidaField.getText());
 								bufferBebida.setSabor(saborBebidaField.getText());
@@ -211,7 +210,6 @@ public class TelaDetalheProduto {
 	 * @return Objeto Pastel que sera cadastrado
 	 */
 	public Pastel criarPastel(ControleProdutos cprodutos) {
-		String caracteres="0123456789";
 		Pastel novoPastel = new Pastel();
 		JFrame detalhePastel = new JFrame("Pastel");
 		sets(detalhePastel);
@@ -258,7 +256,7 @@ public class TelaDetalheProduto {
 			if(nomePastelField.getText().isEmpty() || saborPastelField.getText().isEmpty() || precoPastelField.getText().isEmpty() || descPastelField.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espa�os em branco");
 			}else {
-				if(caracteres.contains(precoPastelField.getText())){
+				if(valida.validaFloat(precoPastelField.getText())){
 					if(valida.validaPastel(Float.parseFloat(precoPastelField.getText()))) {
 						novoPastel.setNome(nomePastelField.getText());
 						novoPastel.setSabor(saborPastelField.getText());
@@ -284,7 +282,6 @@ public class TelaDetalheProduto {
 	 * @return o objeto Bebida que ser� cadastrado
 	 */
 	public Bebida criarBebida(ControleProdutos cprodutos) {
-		String caracteres="0123456789";
 		Bebida novoBebida = new Bebida();
 		JFrame detalheBebida = new JFrame("Bebida");
 		sets(detalheBebida);
@@ -343,7 +340,7 @@ public class TelaDetalheProduto {
 			if(nomeBebidaField.getText().isEmpty() || marcaBebidaField.getText().isEmpty() || saborBebidaField.getText().isEmpty() || precoBebidaField.getText().isEmpty() || volumeBebidaField.getText().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "Dados do Produto invalidos, Nao deve haver espa�os em branco");
 			}else{
-				if(caracteres.contains(precoBebidaField.getText()) || caracteres.contains(volumeBebidaField.getText())){
+				if(valida.validaFloat(precoBebidaField.getText()) && valida.validaFloat(volumeBebidaField.getText())){
 					if(valida.validaBebida(Float.parseFloat(precoBebidaField.getText()), Float.parseFloat(volumeBebidaField.getText()))) {
 						bufferBebida.setNome(nomeBebidaField.getText());
 						bufferBebida.setSabor(saborBebidaField.getText());
