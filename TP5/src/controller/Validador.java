@@ -70,13 +70,13 @@ public class Validador {
 	 */
 	public boolean validaFloat(String preco){
 		char[] a = preco.toCharArray();
-		int verifica = 0;
-		for(int i=0; i < preco.length(); i++){
-			if(a[i] == '.'){
-				verifica = 1;
-			}
-			if(a[i] != '.' && !Character.isDigit(a[i])){
+		int verifica = 1;
+		if(a[0] == '.'){
 				return false;
+		}
+		for(int i=0; i < preco.length(); i++){
+			if(a[i] != '.' && a[i] != '0' && a[i] != '1' && a[i] != '2' && a[i] != '3' && a[i] != '4' && a[i] != '5' && a[i] != '6' && a[i] != '7' && a[i] != '8' && a[i] != '9'){
+				verifica = 0;
 			}
 		}
 		if(verifica == 1){
