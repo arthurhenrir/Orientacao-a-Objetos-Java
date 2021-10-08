@@ -34,7 +34,7 @@ public class ControleProdutos {
 	public String[] getNamesBebida() {	
 		String[] nomes = new String[dados.Bebidas.size()];
 		for(int i = 0; i < dados.Bebidas.size(); i++) {
-			nomes[i] = dados.Bebidas.get(i).getNome();
+			nomes[i] = dados.Bebidas.get(i).getNome() +" "+ dados.Bebidas.get(i).getVolume()+"ml - Sabor: " + dados.Bebidas.get(i).getSabor() + " - R$" + dados.Bebidas.get(i).getPreco();
 		}
 		return nomes;
 		
